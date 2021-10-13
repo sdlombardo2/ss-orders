@@ -3,7 +3,8 @@ FROM weaveworksdemos/msd-java:jre-latest
 WORKDIR /usr/src/app
 COPY *.jar ./app.jar
 
-RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
+#RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar
+SHELL ["/bin/bash", "-c", "chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./app.jar"]
 
 USER ${SERVICE_USER}
 
